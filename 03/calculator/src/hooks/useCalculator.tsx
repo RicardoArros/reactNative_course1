@@ -122,6 +122,9 @@ const useCalculator = () => {
 
   // Function calculate
   const calculate = () => {
+
+    setNumberPrev('0');
+    
     //
     const num1 = Number(number);
     const num2 = Number(numberPrev);
@@ -130,7 +133,6 @@ const useCalculator = () => {
       return setNumber('0');
     }
 
-    // if (numberPrev === '0') return;
 
     if (num1 && !num2) {
       return setNumber(`${num1}`);
@@ -161,7 +163,6 @@ const useCalculator = () => {
     numberPrev,
     btnClean,
     btnDelete,
-    // changeNumToPrev,
     numberBuild,
     btnPositiveNegative,
     calculate,
