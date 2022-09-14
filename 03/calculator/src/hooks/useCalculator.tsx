@@ -122,17 +122,14 @@ const useCalculator = () => {
 
   // Function calculate
   const calculate = () => {
-
-    setNumberPrev('0');
-    
     //
     const num1 = Number(number);
     const num2 = Number(numberPrev);
 
+    //
     if (num1 === 0 && num2 === 0) {
       return setNumber('0');
     }
-
 
     if (num1 && !num2) {
       return setNumber(`${num1}`);
@@ -156,6 +153,9 @@ const useCalculator = () => {
       default:
         break;
     }
+
+    //
+    setNumberPrev('0');
   };
 
   return {
