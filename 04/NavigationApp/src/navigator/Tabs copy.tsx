@@ -18,41 +18,64 @@ const Tabs = () => {
       sceneContainerStyle={{
         backgroundColor: colors.primary,
       }}
+      // screenOptions={{
+      //   tabBarActiveTintColor: colors.primary,
+      //   tabBarStyle: {
+      //     borderTopColor: colors.primary,
+      //     borderTopWidth: 0,
+      //     elevation: 5,
+      //   },
+      //   tabBarLabelStyle: {
+      //     fontSize: 15,
+      //   },
+      // }}
       screenOptions={({route}) => ({
-        tabBarActiveTintColor: colors.primary,
-        tabBarStyle: {
-          borderTopColor: 'red',
-          borderTopWidth: 0,
-          elevation: 0,
-        },
-        tabBarLabelStyle: {
-          fontSize: 15,
-        },
-        tabBarIcon: props => {
+        tabBarIcon: ({color, focused, size}) => {
+          console.log('CURRENT ROUTE', route);
+
           let iconName: string = '';
+
           switch (route.name) {
             case 'Tab1Screen':
               iconName = 'T1';
               break;
-
             case 'Tab2Screen':
               iconName = 'T2';
               break;
-
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'St';
+              break;
+
+            default:
               break;
           }
-          return <Text style={{color: props.color}}>{iconName}</Text>;
+
+          return <Text style={{color}}>{iconName}</Text>;
         },
       })}>
+      {/* <Tab.Screen
+        name="Tab1Screen"
+        //options={{title: 'Este es 1'}}
+        options={{
+          tabBarLabel: 'Tab1!',
+          tabBarIcon: props => <Text style={{color: props.color}}>X</Text>,
+        }}
+        component={Tab1Screen}
+      /> */}
       <Tab.Screen
         name="Tab1Screen"
+        //options={{title: 'Este es 1'}}
         options={{
-          tabBarLabel: 'Tab1',
+          tabBarLabel: 'Tab1!',
+          tabBarIcon: props => <Text style={{color: props.color}}>X</Text>,
         }}
         component={Tab1Screen}
       />
+      {/* <Tab.Screen
+        name="Tab2Screen"
+        options={{tabBarLabel: 'Tab2!', tabBarIcon: () => null}}
+        component={Tab2Screen}
+      /> */}
       <Tab.Screen
         name="Tab2Screen"
         options={{tabBarLabel: 'Tab2'}}
