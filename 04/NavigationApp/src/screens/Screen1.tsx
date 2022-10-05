@@ -1,17 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Button, Text, TouchableOpacity, View} from 'react-native';
 
-import {StackScreenProps} from '@react-navigation/stack';
-
 import {styles} from '../theme/appTheme';
 
-interface Props extends StackScreenProps<any, any> {
+import {StackScreenProps} from '@react-navigation/stack';
+import {DrawerScreenProps} from '@react-navigation/drawer';
+
+interface Props extends DrawerScreenProps<any, any> {
   // id: number;
   // name: string;
 }
 
 const Screen1 = ({navigation}: Props) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <Button title="Menu" onPress={() => navigation.toggleDrawer()} />,
+    });
+
+    return () => {};
+  }, []);
+
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>ViewOne</Text>
@@ -26,7 +35,7 @@ const Screen1 = ({navigation}: Props) => {
         onPress={() => navigation.navigate('PersonScreen')}
       /> */}
 
-      <Text>Navegar con argumentos</Text>
+      <Text style={{marginVertical: 30, fontSize: 20}}>Navegar con argumentos</Text>
 
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
