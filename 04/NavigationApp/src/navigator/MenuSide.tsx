@@ -7,7 +7,7 @@ import {
 } from '@react-navigation/drawer';
 
 // import {StackNavigator} from './StackNavigator';
-import Tabs from './Tabs';
+import {Tabs} from './Tabs';
 import SettingsScreen from '../screens/SettingsScreen';
 
 import {
