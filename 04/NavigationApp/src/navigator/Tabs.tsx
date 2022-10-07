@@ -10,6 +10,7 @@ import Tab1Screen from '../screens/Tab1Screen';
 import Tab2Screen from '../screens/Tab2Screen';
 // import Tab3Screen from '../screens/Tab3Screen';
 import {StackNavigator} from './StackNavigator';
+import { TopTabNavigator } from './TopTabNavigator';
 
 import {colors} from '../theme/appTheme';
 
@@ -17,12 +18,13 @@ export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
 };
 
+//
 const BottomTabAndroid = createMaterialBottomTabNavigator();
 
 const TabsAndroid = () => {
   return (
     <BottomTabAndroid.Navigator
-      sceneAnimationEnabled={true}
+      // sceneAnimationEnabled={true}
       barStyle={{backgroundColor: colors.primary}}
       screenOptions={({route}) => ({
         tabBarActiveTintColor: colors.primary,
@@ -62,7 +64,7 @@ const TabsAndroid = () => {
       <BottomTabAndroid.Screen
         name="Tab2Screen"
         options={{tabBarLabel: 'Tab2'}}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabAndroid.Screen
         name="StackNavigator"
@@ -73,6 +75,7 @@ const TabsAndroid = () => {
   );
 };
 
+//
 const BottomTabIOS = createBottomTabNavigator();
 
 const TabsIOS = () => {
@@ -119,7 +122,7 @@ const TabsIOS = () => {
       <BottomTabIOS.Screen
         name="Tab2Screen"
         options={{tabBarLabel: 'Tab2'}}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabIOS.Screen
         name="StackNavigator"
